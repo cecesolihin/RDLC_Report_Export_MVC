@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LATIHAN_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Checklist">
+          <Key>
+            <PropertyRef Name="ChecklistId" />
+          </Key>
+          <Property Name="ChecklistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ChecklistItem">
+          <Key>
+            <PropertyRef Name="ChecklistItemId" />
+          </Key>
+          <Property Name="ChecklistId" Type="int" />
+          <Property Name="ChecklistItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LATIHAN_DB.dbo.OrderDetail' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="OrderDetail">
+          <Property Name="OrderId" Type="varchar" MaxLength="10" />
+          <Property Name="ProductId" Type="varchar" MaxLength="10" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="SubTotal" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LATIHAN_DB.dbo.OrderHeader' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="OrderHeader">
+          <Property Name="OrderId" Type="varchar" MaxLength="10" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="CustomerId" Type="varchar" MaxLength="10" />
+          <Property Name="RequiredDate" Type="datetime" />
+          <Property Name="ShipName" Type="varchar" MaxLength="30" />
+          <Property Name="TotalPrice" Type="money" />
+        </EntityType>-->
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="money" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'LATIHAN_DB.dbo.User' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="User">
+          <Property Name="UserName" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="6" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+        </EntityType>-->
+        <EntityContainer Name="LATIHAN_DBModelStoreContainer">
+          <EntitySet Name="Checklist" EntityType="Self.Checklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChecklistItem" EntityType="Self.ChecklistItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LATIHAN_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Checklist">
+          <Key>
+            <PropertyRef Name="ChecklistId" />
+          </Key>
+          <Property Name="ChecklistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ChecklistItem">
+          <Key>
+            <PropertyRef Name="ChecklistItemId" />
+          </Key>
+          <Property Name="ChecklistId" Type="Int32" />
+          <Property Name="ChecklistItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="LATIHAN_DBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Checklists" EntityType="Self.Checklist" />
+          <EntitySet Name="ChecklistItems" EntityType="Self.ChecklistItem" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LATIHAN_DBModelStoreContainer" CdmEntityContainer="LATIHAN_DBEntities2">
+          <EntitySetMapping Name="Checklists">
+            <EntityTypeMapping TypeName="LATIHAN_DBModel.Checklist">
+              <MappingFragment StoreEntitySet="Checklist">
+                <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChecklistItems">
+            <EntityTypeMapping TypeName="LATIHAN_DBModel.ChecklistItem">
+              <MappingFragment StoreEntitySet="ChecklistItem">
+                <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
+                <ScalarProperty Name="ChecklistItemId" ColumnName="ChecklistItemId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="LATIHAN_DBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="LATIHAN_DBModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

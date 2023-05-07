@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RLDCReport.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>ProductList</h2>
+
+<p>
+    @Html.ActionLink("Export Excell", "ExportReport", new { ReportType="Excel"}) | @Html.ActionLink("Export PDF", "ExportReport", new { ReportType = "PDF" })|
+    @Html.ActionLink("Export Word", "ExportReport", new { ReportType = "Word" })| @Html.ActionLink("Export Jpg", "ExportReport", new { ReportType = "JPG" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+        </td>
+    </tr>
+}
+
+</table>

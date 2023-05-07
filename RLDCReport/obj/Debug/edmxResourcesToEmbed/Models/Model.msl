@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LATIHAN_DBModelStoreContainer" CdmEntityContainer="LATIHAN_DBEntities2">
+    <EntitySetMapping Name="Checklists">
+      <EntityTypeMapping TypeName="LATIHAN_DBModel.Checklist">
+        <MappingFragment StoreEntitySet="Checklist">
+          <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChecklistItems">
+      <EntityTypeMapping TypeName="LATIHAN_DBModel.ChecklistItem">
+        <MappingFragment StoreEntitySet="ChecklistItem">
+          <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
+          <ScalarProperty Name="ChecklistItemId" ColumnName="ChecklistItemId" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="LATIHAN_DBModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="LATIHAN_DBModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
